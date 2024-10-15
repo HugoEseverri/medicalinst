@@ -3,7 +3,8 @@ interface UserDto{
     email:string,
     birthdate:Date,
     nDni:number,
-    
+    username: string;
+    password: string;
 }
 
 export default UserDto

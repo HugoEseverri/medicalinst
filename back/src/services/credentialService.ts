@@ -1,27 +1,28 @@
-import ICredential from "../interfaces/ICredential";
-//agregar Service a las const
-let credentials: ICredential[] = [
-    {id: 1, username: `juan_perez`, password: `passfalso123`},
-    {id: 2, username: `maria_gonzales`, password: `passfalso124`}
-];
+import { AppDataSource } from "../config/data-source";
+import CredentialDto from "../dto/credentialDto";
+import Credential from "../entities/Credential";
 
-export const createCredential = async (username:string, password:string): Promise <number> => {
-    const newId = credentials.length +1;
-    const newCredential: ICredential = {id:newId, username, password};
-    credentials.push(newCredential);
-    return newId;
+const CredentialRepository = AppDataSource.getRepository(Credential)
+
+
+export const createCredential = async (credentials: CredentialDto): Promise <Credential> => {
+    const { username, password } = credentials;
+    
+    const newCredentials = CredentialRepository.create({
+        username,
+        password,
+    })
+
+    await CredentialRepository.save(newCredentials)
+
+    return newCredentials;
 };
 
-export const validateCredential = async (username:string, password:string):Promise <number | null> =>{
-    const credential = credentials.find(cred => cred.username === username);
+export const validateCredential = async (credentials: CredentialDto ):Promise <number> =>{
+    const { username, password } = credentials;
 
-    if(credential) {
-        if(credential.password === password){
-            return credential.id;
-        }else{
-            return null;
-        }
-    }else {
-        return null;
-    }
+    const foundCredentials = await CredentialRepository.findOneBy({ username })
+
+    if(foundCredentials?.password === password) return foundCredentials.id;
+    else return 0
 };

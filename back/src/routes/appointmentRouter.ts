@@ -1,13 +1,12 @@
 import { Router } from "express";
-import { scheduleAppointment, cancelAppointment } from "../controllers/appointmentControllers";
+import {getAppointments, getAppointmentsById, registerNewAppointment, cancelAppointment } from "../controllers/appointmentControllers";
 
 const appointmentRouter = Router();
+appointmentRouter.get("/", getAppointments);
+appointmentRouter.get("/:id", getAppointmentsById);
+appointmentRouter.post("/schedule", registerNewAppointment);
+appointmentRouter.put("/cancel/:id", cancelAppointment);
 
-// Ruta para crear un nuevo turno
-appointmentRouter.post('/schedule', scheduleAppointment);
-
-// Ruta para cancelar un turno (pasando el ID del turno)
-appointmentRouter.put('/cancel/:id', cancelAppointment);
 
 export default appointmentRouter;
 

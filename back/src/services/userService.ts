@@ -1,36 +1,48 @@
+import { AppDataSource } from "../config/data-source";
 import UserDto from "../dto/UserDto";
-import IUser from "../interfaces/IUser"
+import User from "../entities/User";
 import { createCredential } from "./credentialService";
+import Credential from "../entities/Credential";
 
-let users:IUser[] = []
+const UserRepository = AppDataSource.getRepository(User);
 
-let id: number = 1;
+export const getUsersService = async ():Promise<User[]> => { 
 
-export const createUserService = async (userData: UserDto, username: string, password: string, nDni:number): Promise<IUser> => { 
+    const userDB = await UserRepository.find({
+        relations: { appointments: true }
+    })
 
-    const credentialsId = await createCredential(username, password);
+    return userDB;
+}
 
-    const newUser: IUser = {
-        id,
-        name: userData.name,
-        email: userData.email,
-        birthdate: userData.birthdate,
+export const getUserByIdService = async (id:number): Promise<User | null> => {
+    const foundUser = await UserRepository.findOne({
+        where: {id},
+        relations: { appointments: true }
+    })
+    return foundUser
+};
+
+
+export const createUserService = async (userData: UserDto): Promise<User> => { 
+    const { username, password, name, email, birthdate, nDni } = userData;
+
+    const newCreds = await createCredential ({ username, password})
+
+    const newUser = UserRepository.create({
+        name,
+        email,
+        birthdate,
         nDni,
-        credentialsId
-    };
-    users.push(newUser)
-    id++;
+        credentials: newCreds
+    })
+    
+
+    newCreds.user = newUser;
+
+    await UserRepository.save(newUser);
+    await AppDataSource.getRepository(Credential).save(newCreds)
+
     return newUser
 }
 
-export const getUsersService = async ():Promise<IUser[]> => { 
-    return users;
-}
-
-export const getUserByIdService = async (id:number): Promise<IUser | undefined> => {
-    return users.find(user => user.id === id);
-}
-
-export const deleteUserService = async (id: number): Promise<void> => {
-    users = users.filter((user: IUser) => user.id !== id);
-}
