@@ -1,7 +1,7 @@
 import { AppDataSource } from "../config/data-source";
 import CredentialDto from "../dto/credentialDto";
 import Credential from "../entities/Credential";
-
+import User from "../entities/User";
 const CredentialRepository = AppDataSource.getRepository(Credential)
 
 
@@ -18,11 +18,14 @@ export const createCredential = async (credentials: CredentialDto): Promise <Cre
     return newCredentials;
 };
 
-export const validateCredential = async (credentials: CredentialDto ):Promise <number> =>{
+export const validateCredential = async (credentials: CredentialDto ):Promise <User | undefined> =>{
     const { username, password } = credentials;
 
-    const foundCredentials = await CredentialRepository.findOneBy({ username })
+    const foundCredentials = await CredentialRepository.findOne({
+        where:{ username },
+        relations: ["user"]
+});
 
-    if(foundCredentials?.password === password) return foundCredentials.id;
-    else return 0
+if (foundCredentials?.password === password) return foundCredentials?.user
+
 };

@@ -6,7 +6,7 @@ import User from "../entities/User";
 
 const AppointmentsRepository = AppDataSource.getRepository(Appointment);
 
-export const getAllAppointmentsById = async (): Promise<Appointment[]> => {
+export const getAllAppointments = async (): Promise<Appointment[]> => {
     const allAppointments = await AppointmentsRepository.find({
         relations: { user: true },
     });

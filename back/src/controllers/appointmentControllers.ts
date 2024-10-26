@@ -1,38 +1,65 @@
 import { Request, Response } from "express";
-import { createNewAppointmentService, getAllAppointmentsById, getAppointmentByIdService, cancelAppointmentService } from "../services/appointmentServices";
+import { createNewAppointmentService, getAllAppointments, getAppointmentByIdService, cancelAppointmentService } from "../services/appointmentServices";
 
 
 
-export const getAppointments = async (req: Request, res: Response): Promise <Response> => {
-    const allApp = await getAllAppointmentsById();
-    return res.status(200).json(allApp)
+export const getAppointments = async (req: Request, res: Response): Promise<Response> => {
+    try {
+        const allApp = await getAllAppointments();
+
+
+        return allApp.length ? res.status(200).json(allApp) : res.status(404).json({ message: "No hay turnos registrados" })
+
+    } catch (error) {
+        return res.status(500).json(error)
+    }
 };
 
 export const getAppointmentsById = async (req: Request, res: Response): Promise<Response> => {
-    const {id} = req.params;
+    try {
+        const { id } = req.params;
 
-    const appointment = await getAppointmentByIdService(Number(id));
+        const appointment = await getAppointmentByIdService(Number(id));
+        return appointment
+            ? res.status(200).json(appointment)
+            : res.status(404).json({ error: "El turno no existe" });
 
-    return appointment
-        ? res.status(200).json(appointment)
-        : res.status(400).json({error: "El turno no existe"});
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+
 };
 
 
-export const registerNewAppointment = async(req:Request, res:Response): Promise<Response> => {
-    const appointment = await createNewAppointmentService(req.body);
+export const registerNewAppointment = async (req: Request, res: Response): Promise<Response> => {
+    try {
 
-    return appointment
-    ? res.status(200).json(appointment)
-    : res.status(400).json({error: "El usuario no existe"});
+        const { date, time, userId } = req.body
+
+        if (!date || !time || !userId) return res.status(400).json({ error: "Uno o más datos están incompletos" })
+        const appointment = await createNewAppointmentService(req.body);
+
+        return appointment
+            ? res.status(200).json(appointment)
+            : res.status(400).json({ error: "El usuario no existe" });
+
+    } catch (error) {
+        return res.status(500).json(error)
+    }
 };
 
-export const cancelAppointment = async(req:Request, res:Response): Promise<Response> => {
-    const {id} = req.params;
+export const cancelAppointment = async (req: Request, res: Response): Promise<Response> => {
 
-    const cancelApp = await cancelAppointmentService(Number(id));
+    try {
+        const { id } = req.params;
 
-    return cancelApp
-    ? res.status(200).json({ message: "Turno cancelado"})
-    : res.status(400).json({ message: "El turno no existe"})
+        const cancelApp = await cancelAppointmentService(Number(id));
+
+        return cancelApp
+            ? res.status(200).json({ message: "Turno cancelado" })
+            : res.status(404).json({ message: "El turno no existe" })
+
+    } catch (error) {
+        return res.status(500).json(error)
+    }
 };

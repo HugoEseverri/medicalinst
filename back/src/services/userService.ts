@@ -15,10 +15,22 @@ export const getUsersService = async ():Promise<User[]> => {
     return userDB;
 }
 
-export const getUserByIdService = async (id:number): Promise<User | null> => {
+export const getUserByIdService = async (user: {id:number | null, email: string | null}): Promise<User | null> => {
+
+    const { id, email } = user;
+
+    interface IWhere {
+        id?: number
+        email?: string
+    }
+
+    const whereClause: IWhere = {};
+
+        if(id) whereClause.id = id;
+        if(email) whereClause.email = email
     const foundUser = await UserRepository.findOne({
-        where: {id},
-        relations: { appointments: true }
+        where: whereClause,
+        relations:  ["appointments"],
     })
     return foundUser
 };

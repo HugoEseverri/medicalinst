@@ -1,0 +1,41 @@
+.misTurnosContainer {
+    padding: 20px;
+    text-align: center;
+}
+
+.turnosList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.turnoCard {
+    background-color: #bba4a4;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 30%;
+    text-align: left;
+    margin: 10px;
+}
+
+.turnoCard p {
+    padding: 5px;
+}
+
+.turnoCard button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #11151a;
+}

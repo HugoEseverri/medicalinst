@@ -1,0 +1,56 @@
+.formContainer{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.formContainer form{
+    
+    width: 500px;
+    border-radius: 10px;
+    background-color: #978f8f;
+}
+
+.formContainer form h1{
+    text-align: center;
+    margin: 20px;
+}
+
+.formDiv{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    gap: 10px;
+    font-size: 20px;
+
+}
+
+
+.formDiv p{
+    color: rgb(189, 5, 5);
+}
+.formDiv label{
+    text-align: center;
+}
+
+.formDiv input{
+    border-radius: 4px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.formButtonFather{
+    display: flex;
+    justify-content: center;
+}
+
+.formButton{
+    margin: 20px;
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    
+}
