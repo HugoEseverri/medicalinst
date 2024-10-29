@@ -1,0 +1,66 @@
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service {
+    margin-bottom: 20px;
+    width: 1500PX;
+}
+
+.service h1{
+    font-size: 40px;
+    color: rgb(12, 116, 206);
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 40px;
+}
+
+.service h2 {
+    font-size: 36px;
+    color: rgb(12, 116, 206);
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.service p {
+    font-size: 22px;
+    margin: 10px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+
+.containerDos{
+    background-color: #034076;
+    padding: 40px;
+}
+
+
+.containerDos h2, h3{
+    text-align: center;
+    margin: 20px;
+    font-size: 36px;
+    color: white;
+
+}
+
+
+.listContainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px;
+}
+
+.listContainer div ul li{
+    font-size: 22px;
+    margin: 10px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    color: white;
+}

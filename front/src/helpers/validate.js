@@ -3,11 +3,11 @@ export const validateLogin = (input) => {
 
 
     if (!input.username) {
-        errors.username = "Email requerido";
-    } else if (!/\S+@\S+\.\S+/.test(input.username)) {
-        errors.username = "Email inválido";
+        errors.username = "Usuario requerido";
+    } else if (!/^[a-zA-Z0-9]+$/.test(input.username)) {
+        errors.username = "Usuario inválido";
     } else if (input.username.length > 50) {
-        errors.username = "El email no puede tener más de 50 caracteres";
+        errors.username = "El usuario no puede tener más de 50 caracteres";
     }
 
 
@@ -29,6 +29,8 @@ export const validateRegister = (input) => {
 
     if (!input.name) {
         errors.name = "Nombre requerido";
+    } else if (!/^[A-Za-z\s]+$/.test(input.name)) {
+        errors.name = "El nombre solo debe contener letras y espacios";
     }
 
     if (!input.email) {

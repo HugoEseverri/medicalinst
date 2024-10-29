@@ -30,7 +30,7 @@ export const getUserByIdService = async (user: {id:number | null, email: string 
         if(email) whereClause.email = email
     const foundUser = await UserRepository.findOne({
         where: whereClause,
-        relations:  ["appointments"],
+        relations:  ["appointments", "credentials"],
     })
     return foundUser
 };

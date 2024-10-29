@@ -1,0 +1,121 @@
+.homeContainer {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 50vh;
+    /* Ajusta según el espacio que desees */
+    overflow: hidden;
+    /* Oculta la parte superior */
+}
+
+.homeImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    /* Muestra la parte inferior de la imagen */
+}
+
+.title,
+.description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    top: 30%;
+    /* Ajusta para controlar la posición del título */
+    font-size: 70px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.description {
+    top: 50%;
+    /* Ajusta para controlar la posición de la descripción */
+    font-size: 36px;
+    margin: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.actionButton {
+    margin-top: 20px;
+}
+
+.homeContainerDos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.homeContainerDos img {
+    width: 500px;
+    margin: 90px;
+}
+
+.descriptionDos {
+    width: 800px;
+    
+}
+
+.descriptionDos h2 {
+    font-size: 36px;
+    color: rgb(12, 116, 206);
+    letter-spacing: 1px;
+}
+
+.noUnderline{
+    text-decoration: none;
+}
+
+.descriptionDos p {
+    font-size: 22px;
+    margin: 10px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+.homeContainerTres {
+    background-color: #034076;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.homeContainerTres h2 {
+    color: white;
+    margin: 45px;
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+.imageContainerDos {
+    display: flex;
+    gap: 16px;
+    /* Espacio entre imágenes, ajusta según prefieras */
+    justify-content: center;
+    /* Centra las imágenes */
+}
+
+.imageContainerDos img {
+    width: 100%;
+    max-width: 500px;
+    /* Ajusta el tamaño deseado */
+    height: auto;
+    object-fit: cover;
+    /* Ajusta la imagen para cubrir el espacio sin deformarse */
+    
+    height: 60vh;
+    margin: 0 5px 60px 5px;
+}

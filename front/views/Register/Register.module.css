@@ -1,4 +1,120 @@
-.formContainer{
+.formContainerFather {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.formContainerFather h1 {
+    color: rgb(12, 116, 206);
+    margin: 40px;
+    font-size: 40px;
+
+}
+
+
+.formContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    background-color: #034076;
+    color: white;
+    width: 1200px;
+    height: 1500px;
+}
+
+.formContainer h2 {
+    color: white;
+    text-align: center;
+    font-size: 35px;
+}
+
+.formContainer h3 {
+    text-align: center;
+    margin: 45px 45px 45px 90px;
+}
+
+form {
+
+    border-left: 1px solid #575555;
+    margin: 15px;
+    font-size: 35px;
+
+}
+
+.formDiv {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 140px;
+    gap: 15px;
+    font-size: 20px;
+    margin: 50px;
+}
+
+.formDiv input {
+    padding: 20px;
+    font-size: 20px;
+
+}
+
+.formDiv label {
+    font-size: 25px;
+}
+
+
+.formButtonFather {
+    display: flex;
+    justify-content: center;
+
+}
+
+.formButton {
+    margin: 0 10px 20px 70px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 25px;
+
+}
+
+.errorMessage {
+    color: rgb(255, 255, 255);
+    /* Cambia a cualquier color que prefieras */
+    font-size: 14px;
+    /* Tamaño de la letra opcional */
+    margin-top: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .formContainer{
     display: flex;
     justify-content: center;
 }
@@ -6,10 +122,15 @@
 
 
 .formContainer form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     
-    width: 500px;
-    border-radius: 10px;
-    background-color: #978f8f;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    background-color: #034076;
+    color: white;
+    width: 1200px;
+    height: 1400px;
 }
 
 .formContainer form h1{
@@ -53,4 +174,4 @@
     height: 40px;
     border-radius: 4px;
     
-}
+} */

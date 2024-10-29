@@ -1,0 +1,93 @@
+.container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container h1 {
+    color: #034076;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.container p {
+    color: #666;
+    font-size: 22px;
+    margin: 20px;
+}
+
+h2 {
+    color: #034076;
+    font-size: 29px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.inputGroup label {
+    color: #034076;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+    border-color: #034076;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submitButton {
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #034076;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #0562a5;
+}
+
+.thankYou {
+    color: #034076;
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: bold;
+}

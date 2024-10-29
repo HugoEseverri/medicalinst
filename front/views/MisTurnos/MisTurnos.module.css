@@ -1,6 +1,20 @@
-.misTurnosContainer {
-    padding: 20px;
+.misTurnosContainer h1 {
+    font-size: 40px;
+    color: rgb(12, 116, 206);
+    letter-spacing: 1px;
     text-align: center;
+    margin: 40px;
+}
+
+.turnosText{
+    
+    margin: 0 400px 0 400px;
+    
+    color: black;
+    font-size: 22px;
+    
+    line-height: 1.8;
+    letter-spacing: 1px;
 }
 
 .turnosList {
@@ -12,22 +26,26 @@
 }
 
 .turnoCard {
-    background-color: #bba4a4;
+    background-color: #034076;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 30%;
     text-align: left;
-    margin: 10px;
+    margin: 50px;
+    
 }
 
 .turnoCard p {
     padding: 5px;
+    font-size: 22px;
+    color: white;
+    letter-spacing: 1px;
 }
 
 .turnoCard button {
-    background-color: #007BFF;
-    color: white;
+    background-color: #ffffff;
+    color: black;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -37,5 +55,5 @@
 }
 
 button:hover {
-    background-color: #11151a;
+    background-color: #2677da;
 }
