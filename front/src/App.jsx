@@ -9,7 +9,7 @@ import Nosotros from '../views/Nosotros/Nosotros'
 import Contacto from '../views/Contacto/Contacto'
 import { Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
-
+import CrearTurnos from '../views/CrearTurnos/CrearTurnos'
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route path='/home' element={<Home/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login />}/>
+        <Route path='/crearturnos' element={<CrearTurnos/>}/>
         <Route path='/misturnos' element={<MyAppointments />}/>
         <Route path='/acercade' element={<Nosotros />}/>
         <Route path='/contact' element={<Contacto />}/>

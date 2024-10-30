@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, userContext } from "react";
+import { createContext, useContext, useState } from "react";
 import axios from "axios";
 
 const UserContext = createContext();
@@ -16,6 +16,10 @@ export const UserProvider = ({ children }) => {
     }
     const updateUserAppointments = (appointments) => setUserAppointments(appointments);
 
+    const addAppointment = (appointment) => {
+        setUserAppointments((prevAppointments) => [...prevAppointments, appointment]);
+    };
+
     const cancelAppointment = async (appointmentId) => {
         try {
             await axios.put(`http://localhost:3001/appointments/cancel/${appointmentId}`);
@@ -30,7 +34,7 @@ export const UserProvider = ({ children }) => {
     };
 
     return (
-        <UserContext.Provider value={{ user, userAppointments, updateUser, updateUserAppointments, cancelAppointment }}>
+        <UserContext.Provider value={{ user, userAppointments, updateUser, updateUserAppointments, addAppointment, cancelAppointment }}>
             {children}
         </UserContext.Provider>
     );

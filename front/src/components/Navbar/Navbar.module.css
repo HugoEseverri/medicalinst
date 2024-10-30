@@ -21,7 +21,7 @@
     color: rgb(12, 116, 206);
 }
 
-.navLogo div button{
+.button{
     width: 240px;
     padding: 20px;
     border-radius: 45px;
@@ -29,7 +29,13 @@
     background-color: #0C91DC;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.9s ease;
 
+}
+
+.button:hover {
+    transform: scale(1.1);
 }
 
 nav{
