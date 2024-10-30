@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { validateLogin } from "../../src/helpers/validate";
 import axios from "axios";
+import { useUserContext } from "../../src/context/UserContext";
 
 
 const Login = () => {
@@ -15,6 +16,9 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const [loginError, setLoginError] = useState("")
     const [showPassword, setShowPassword] = useState(false);
+
+    const { updateUser } = useUserContext();
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -30,7 +34,7 @@ const Login = () => {
         }));
     }
 
-    const navigate = useNavigate()
+    
 
     const handleOnSubmit = async (event) => {
         event.preventDefault();
@@ -40,6 +44,9 @@ const Login = () => {
 
         try {
             const response = await axios.post("http://localhost:3001/users/login", userData);
+            console.log("Datos de usuario recibidos al loguearse:", response.data);
+
+            updateUser(response.data.user)
             alert(`Login exitoso`);
             setUserData({ username: "", password: "" })
             navigate("/home")

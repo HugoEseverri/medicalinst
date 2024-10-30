@@ -1,8 +1,11 @@
 import styles from "./Navbar.module.css"
 import { Link } from "react-router-dom"
 import logomedico from "../../assets/images/logomedico.jpg"
+import { useUserContext } from "../../context/UserContext"
 
 const Navbar = () => {
+
+    const { user } = useUserContext()
     return (
         <>
             <div className={styles.navLogo}>
@@ -17,7 +20,7 @@ const Navbar = () => {
                     <ul className={styles.navbar}>
                         <li><Link to="/home">HOME</Link></li>
                         <li><Link to="/acercade">NOSOTROS</Link></li>
-                        <li><Link to="/misturnos">MIS TURNOS</Link></li>
+                        {user && <li><Link to="/misturnos">MIS TURNOS</Link></li>}
                         <li><Link to="/login">INICIAR SESIÓN</Link></li>
                         <li><Link to="/register">REGISTRARSE</Link></li>
                         <li><Link to="/contact">CONTACTO</Link></li>

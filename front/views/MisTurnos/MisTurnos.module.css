@@ -17,6 +17,18 @@
     letter-spacing: 1px;
 }
 
+.turnosTextDos{
+    font-size: 40px;
+    color: white;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin: 60px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #2677da;
+}
+
 .turnosList {
     display: flex;
     flex-direction: row;
