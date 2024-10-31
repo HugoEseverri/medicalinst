@@ -83,9 +83,7 @@ form {
 
 .errorMessage {
     color: rgb(255, 255, 255);
-    /* Cambia a cualquier color que prefieras */
     font-size: 14px;
-    /* Tamaño de la letra opcional */
     margin-top: 4px;
 }
 

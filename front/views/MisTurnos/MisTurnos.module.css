@@ -6,13 +6,10 @@
     margin: 40px;
 }
 
-.turnosText{
-    
-    margin: 0 400px 0 400px;
-    
+.turnosText{    
+    margin: 0 400px 0 400px;  
     color: black;
     font-size: 22px;
-    
     line-height: 1.8;
     letter-spacing: 1px;
 }

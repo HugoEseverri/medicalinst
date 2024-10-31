@@ -7,7 +7,7 @@ import axios from "axios";
 
 const MyAppointments = () => {
     const [appointments, setAppointments] = useState([]);
-    const { user, updateUserAppointments, cancelAppointment } = useUserContext(); // Asumiendo que `user` tiene el `id` del usuario logueado
+    const { user, updateUserAppointments, cancelAppointment } = useUserContext();
     const navigate = useNavigate();
 
     useEffect(() => {

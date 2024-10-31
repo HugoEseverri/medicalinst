@@ -7,9 +7,7 @@
 .imageContainer {
     width: 100%;
     height: 50vh;
-    /* Ajusta según el espacio que desees */
     overflow: hidden;
-    /* Oculta la parte superior */
 }
 
 .homeImage {
@@ -17,7 +15,6 @@
     height: 100%;
     object-fit: cover;
     object-position: bottom;
-    /* Muestra la parte inferior de la imagen */
 }
 
 .title,
@@ -26,13 +23,11 @@
     left: 50%;
     transform: translateX(-50%);
     color: white;
-
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .title {
     top: 30%;
-    /* Ajusta para controlar la posición del título */
     font-size: 70px;
     font-weight: bold;
     margin-left: 30px;
@@ -40,7 +35,6 @@
 
 .description {
     top: 50%;
-    /* Ajusta para controlar la posición de la descripción */
     font-size: 36px;
     margin: 30px;
     font-weight: bold;
@@ -102,20 +96,15 @@
 
 .imageContainerDos {
     display: flex;
-    gap: 16px;
-    /* Espacio entre imágenes, ajusta según prefieras */
+    gap: 16px; 
     justify-content: center;
-    /* Centra las imágenes */
 }
 
 .imageContainerDos img {
     width: 100%;
     max-width: 500px;
-    /* Ajusta el tamaño deseado */
     height: auto;
     object-fit: cover;
-    /* Ajusta la imagen para cubrir el espacio sin deformarse */
-    
     height: 60vh;
     margin: 0 5px 60px 5px;
 }

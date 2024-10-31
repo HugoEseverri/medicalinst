@@ -24,7 +24,7 @@ export const UserProvider = ({ children }) => {
         try {
             await axios.put(`http://localhost:3001/appointments/cancel/${appointmentId}`);
 
-            // Actualizar el estado de citas al eliminar la cita cancelada
+            
             setUserAppointments((prevAppointments) =>
                 prevAppointments.filter((app) => app.id !== appointmentId)
             );
