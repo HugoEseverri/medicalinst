@@ -62,27 +62,12 @@ nav{
 .navbar a {
     color: white;
     text-decoration: none;
-    display: inline-block; /* Necesario para que el transform se aplique correctamente */
-    padding-bottom: 5px; /* Espacio para la línea de subrayado */
+    display: inline-block;
+    padding-bottom: 5px;
     transition: transform 0.3s ease, border-bottom 0.3s ease;
 }
 
 .navbar a:hover {
-    transform: scale(1.2); /* Aumenta el tamaño del texto */
-    border-bottom: 2px solid #ffffff; /* Línea de subrayado */
+    transform: scale(1.2);
+    border-bottom: 2px solid #ffffff;
 }
-
-
-
-
-
-/* .navbar a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: #f09e9e;
-    
-} */

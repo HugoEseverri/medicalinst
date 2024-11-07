@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { createUserService, getUsersService, getUserByIdService } from "../services/userService"
 import { validateCredential } from "../services/credentialService";
-import { error } from "console";
+
 
 
 

@@ -11,7 +11,6 @@ export const UserProvider = ({ children }) => {
     const [userAppointments, setUserAppointments] = useState([]);
 
     const updateUser = (userData) =>{
-        console.log("Actualizando usuario en contexto:", userData)
         setUser(userData);
     }
     const updateUserAppointments = (appointments) => setUserAppointments(appointments);

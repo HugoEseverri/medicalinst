@@ -2,6 +2,7 @@ import { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../src/context/UserContext";
 import axios from "axios";
+import { isWeekDay, isValidTime } from "../../src/helpers/validate";
 import styles from "./CrearTurnos.module.css";
 
 const CrearTurnos = () => {
@@ -16,6 +17,8 @@ const CrearTurnos = () => {
         }
     }, [user, navigate]);
 
+    const today = new Date().toISOString().split("T")[0];
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -28,6 +31,22 @@ const CrearTurnos = () => {
             setError("Todos los campos son obligatorios.");
             return;
         }
+
+        if (formData.date <= today) {
+            alert("La fecha debe ser posterior a la fecha actual.");
+            return;
+        }
+
+        if (!isWeekDay(formData.date)) {
+            alert("Solo puedes reservar turnos de lunes a viernes.");
+            return;
+        }
+
+        if (!isValidTime(formData.time)) {
+            alert("El horario debe estar entre las 08:00 y las 21:00.");
+            return;
+        }
+
 
         try {
             const response = await axios.post("http://localhost:3001/appointments/schedule", {
@@ -48,7 +67,6 @@ const CrearTurnos = () => {
         <div className={styles.crearTurnosContainer}>
             <h1>Crear Turno</h1>
             <h2>Solicitá tu Turno Médico en IMPSA</h2>
-            {error && <p className={styles.error}>{error}</p>}
             <p className={styles.turnosText}>En IMPSA, ofrecemos la posibilidad de solicitar turnos para cualquier especialidad médica de manera rápida y sencilla. Nuestro instituto médico privado cuenta con atención de guardia las 24 horas, asegurando que siempre puedas acceder al cuidado que necesitas, sin importar el momento. En esta sección podrás gestionar tus turnos y elegir el horario que mejor se adapte a tus necesidades para recibir atención de calidad en un ambiente cómodo y seguro.
 
                 ¡Confía en nuestro equipo de expertos y en la atención personalizada que brindamos en IMPSA para cuidar de tu salud!</p>

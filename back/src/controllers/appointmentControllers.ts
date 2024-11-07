@@ -40,7 +40,7 @@ export const registerNewAppointment = async (req: Request, res: Response): Promi
         const appointment = await createNewAppointmentService(req.body);
 
         return appointment
-            ? res.status(200).json(appointment)
+            ? res.status(201).json(appointment)
             : res.status(400).json({ error: "El usuario no existe" });
 
     } catch (error) {

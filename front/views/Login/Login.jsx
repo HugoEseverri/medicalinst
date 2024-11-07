@@ -44,7 +44,7 @@ const Login = () => {
 
         try {
             const response = await axios.post("http://localhost:3001/users/login", userData);
-            console.log("Datos de usuario recibidos al loguearse:", response.data);
+            
 
             updateUser(response.data.user)
             alert(`Login exitoso`);
